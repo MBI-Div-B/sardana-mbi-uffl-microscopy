@@ -1,0 +1,1 @@
+../../../macro-repos/sardana-bookmarks/bookmarks.py

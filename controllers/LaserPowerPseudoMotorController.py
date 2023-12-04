@@ -1,0 +1,1 @@
+../../../controller-repos/sardana-LaserPowerPseudoMotorController/LaserPowerPseudoMotorController.py

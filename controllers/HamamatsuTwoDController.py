@@ -63,7 +63,7 @@ class HamamatsuTwoDController(TwoDController, Referable):
 
     def StateOne(self, axis):
         """Get the specified counter state"""
-        if self.proxy.acq_status == 'Running':
+        if self.proxy.last_image_acquired < 0 or self.proxy.acq_status == 'Running':
             return State.Moving
         else:
             return State.On
@@ -82,8 +82,6 @@ class HamamatsuTwoDController(TwoDController, Referable):
     def StartOne(self, axis, value):
         """acquire the specified counter"""
         self.proxy.startAcq()
-        # wait to avoid too fast status read-backs
-        time.sleep(0.1)
 
     def StopOne(self, axis):
         """Stop the specified counter"""
